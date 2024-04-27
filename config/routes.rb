@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "pages#home"
+  root to: "courses#index"
   devise_for :users
 
   resources :courses do
@@ -10,6 +10,6 @@ Rails.application.routes.draw do
 
 
 
-  
+
   get "up" => "rails/health#show", as: :rails_health_check
 end

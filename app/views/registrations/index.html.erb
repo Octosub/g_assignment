@@ -1,12 +1,9 @@
-<h1>My registered courses</h1>
-<br>
-<br>
-<br>
-
-
 <% if @registrations.empty? %>
   <p>You have not registered for any courses yet.</p>
 <% else %>
+  <%= render "registrations/timetable" %>
+  <br>
+  <br>
   <% @registrations.each do |registration| %>
     <h2><%= registration.course.title %></h2>
     <p><%= registration.course.description %></p>
