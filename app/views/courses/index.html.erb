@@ -1,8 +1,9 @@
 <h1>Courses</h1>
 
 <% @courses.each do |course| %>
-  <div>
+  <div class="course-card" data-controller="toggle">
     <h2><%= course.title %></h2>
     <p><%= course.description %></p>
+    <button class="btn register-btn">Register</button>
   </div>
 <% end %>
