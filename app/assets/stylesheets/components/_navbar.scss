@@ -1,12 +1,17 @@
-.navbar-lewagon {
+.navbar-lewa {
   justify-content: space-between;
-  background: white;
+  background: black;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.nav-link {
+  color: white;
+  transition: 0.5s;
+  &:hover {
+    color: grey;
+  }
+
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-lewa .navbar-brand img {
+  width: 50px;
 }
