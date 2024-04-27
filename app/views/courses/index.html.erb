@@ -14,7 +14,6 @@
       <h2><%= course.title %></h2>
       <p><%= course.description %></p>
       <p><%= course.semester %></p>
-      <p><%= course.timeslot %></p>
       <p><%= course.teacher.name %></p>
       <p><strong>Credits: <%= course.credits %></strong></p>
       <%= button_to 'Register', course_registrations_path(course), method: :post, class:'btn register-btn' %>

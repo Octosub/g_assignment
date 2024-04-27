@@ -29,20 +29,19 @@ Teacher.create!(name: 'Takani Megumi', position: 'Teacher')
 
 #Create courses
 puts "Creating courses..."
-Course.create!(title: 'Introduction to 3JS', description: 'Learn the basics of 3JS', semester: 'SoSe', timeslot: 1, credits: 3, teacher: Teacher.last)
-Course.create!(title: 'Gatotsu Intesive Program', description: 'In this course we will go through all versions of Gatotsu', semester: 'WiSe', timeslot: 2, credits: 6, teacher: Teacher.first)
-Course.create!(title: 'Medical Training', description: 'Learn how to treat wounds and diseases', semester: 'SoSe', timeslot: 3, credits: 3, teacher: Teacher.last)
-Course.create!(title: 'Swordsmanship', description: 'Learn how to use a sword', semester: 'WiSe', timeslot: 4, credits: 3, teacher: Teacher.second)
-counter = 5
-6.times do
-  Course.create!(title: Faker::Educator.course_name, description: Faker::Quote.famous_last_words, semester: counter.even? ? 'SoSe' : 'WiSe', timeslot: counter, credits: 3, teacher: Teacher.all.sample)
+counter = 0
+40.times do
+  Course.create!(title: Faker::Educator.course_name, description: Faker::Quote.famous_last_words, semester: counter.even? ? 'SoSe' : 'WiSe', credits: 3, teacher: Teacher.all.sample, start_time: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :day))
   counter += 1
 end
 
 #Create registrations
 puts "Creating registrations..."
 User.all.each do |user|
+  counter = 1
   3.times do
-    Registration.create!(course: Course.all.sample, user: user)
+    courses = Course.all
+    Registration.create!(course: courses[counter], user: user)
+    counter += [1, 3, 4, 7, 9].sample
   end
 end

@@ -7,7 +7,7 @@
   <% @registrations.each do |registration| %>
     <h2><%= registration.course.title %></h2>
     <p><%= registration.course.description %></p>
-    <p><%= registration.course.timeslot %></p>
+    <p><%= registration.course.start_time %></p>
     <%= link_to registration_path(registration), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this booking?" }, class: 'text-danger text-decoration-none' do %>
       <i class="fa-solid fa-trash"></i>
     <% end %>
