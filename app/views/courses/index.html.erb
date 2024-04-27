@@ -7,7 +7,7 @@
       <p><%= course.semester %></p>
       <p><%= course.teacher.name %></p>
       <p><strong>Credits: <%= course.credits %></strong></p>
-      <button class="btn register-btn">Register</button>
+      <%= button_to 'Register', course_registrations_path(course), method: :post, class:'btn register-btn' %>
       <button class="btn classinfo-btn" data-action="click->toggle-classinfo#toggle">Information</button>
     </div>
     <div class="hidden-course-card d-none" data-toggle-classinfo-target="hiddenCourseInfo">
@@ -17,7 +17,7 @@
       <p><%= course.timeslot %></p>
       <p><%= course.teacher.name %></p>
       <p><strong>Credits: <%= course.credits %></strong></p>
-      <button class="btn register-btn">Register</button>
+      <%= button_to 'Register', course_registrations_path(course), method: :post, class:'btn register-btn' %>
     </div>
   <% end %>
 </div>
