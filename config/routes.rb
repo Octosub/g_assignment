@@ -3,9 +3,13 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :courses do
-    resources :registrations, only: [:create, :destroy]
+    resources :registrations, only: [:create]
   end
 
-  get "up" => "rails/health#show", as: :rails_health_check
+  resources :registrations, only: [:index, :destroy]
 
+
+
+  
+  get "up" => "rails/health#show", as: :rails_health_check
 end
