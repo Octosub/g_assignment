@@ -10,9 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_27_075325) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_27_080809) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "courses", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "semester"
+    t.integer "timeslot"
+    t.integer "credits"
+    t.bigint "teacher_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["teacher_id"], name: "index_courses_on_teacher_id"
+  end
+
+  create_table "registrations", force: :cascade do |t|
+    t.bigint "course_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_registrations_on_course_id"
+    t.index ["user_id"], name: "index_registrations_on_user_id"
+  end
+
+  create_table "teachers", force: :cascade do |t|
+    t.string "name"
+    t.string "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,8 +50,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_27_075325) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "courses", "teachers"
+  add_foreign_key "registrations", "courses"
+  add_foreign_key "registrations", "users"
 end
