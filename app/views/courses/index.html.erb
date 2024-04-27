@@ -4,8 +4,19 @@
   <% @courses.each do |course| %>
     <div class="course-card">
       <h2><%= course.title %></h2>
-      <p><%= course.description %></p>
+      <p><%= course.semester %></p>
+      <p><%= course.teacher %></p>
+      <p><strong>Credits: <%= course.credits %></strong></p>
       <button class="btn register-btn">Register</button>
+      <button class="btn classinfo-btn">Information</button>
+    </div>
+    <div class="hidden-course-card d-none">
+      <h2><%= course.title %></h2>
+      <p><%= course.description %></p>
+      <p><%= course.semester %></p>
+      <p><%= course.timeslot %></p>
+      <p><%= course.teacher %></p>
+      <p><strong>Credits: <%= course.credits %></strong></p>
     </div>
   <% end %>
 </div>
