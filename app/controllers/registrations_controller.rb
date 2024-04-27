@@ -17,4 +17,10 @@ class RegistrationsController < ApplicationController
     end
   end
 
+  def destroy
+    @registration = Registration.find(params[:id])
+    @registration.destroy
+    redirect_to registrations_path, notice: 'You have successfully unregistered from this course.'
+  end
+
 end
