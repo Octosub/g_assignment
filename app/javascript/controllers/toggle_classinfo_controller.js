@@ -1,8 +1,10 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="toggle-classinfo"
+
 export default class extends Controller {
-  connect() {
-    console.log("Classinfo Toggle Controller initialized");
+  static targets = ["hiddenCourseInfo"]
+
+  toggle() {
+    this.hiddenCourseInfoTarget.classList.toggle("d-none");
   }
 }
