@@ -2,6 +2,12 @@ class RegistrationsController < ApplicationController
 
   def index
     @registrations = Registration.where(user_id: current_user.id)
+    @courses = []
+    @registrations.each do |registration|
+      if registration.course.start_time && registration.course.start_time.between?(Time.now.beginning_of_week, Time.now.end_of_week)
+        @courses << registration.course
+      end
+    end
   end
 
   def create

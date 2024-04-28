@@ -1,5 +1,14 @@
 <h2>Timetable</h2>
 
-<%= week_calendar(number_of_weeks: 1) do |date| %>
-  <%= date %>
-<% end %>
+<div id="timetable-container">
+  <%= week_calendar(events: @courses) do |date, courses| %>
+    <div>
+      <%= date %>
+      <% courses.each do |course| %>
+        <p><%= course.title %></p>
+        <p><%= course.start_time %></p>
+        <br>
+      <% end %>
+    </div>
+  <% end %>
+</div>
