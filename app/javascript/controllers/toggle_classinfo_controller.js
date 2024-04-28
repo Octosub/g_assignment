@@ -2,9 +2,11 @@ import { Controller } from "@hotwired/stimulus"
 
 
 export default class extends Controller {
-  static targets = ["hiddenCourseInfo"]
 
-  toggle() {
-    this.hiddenCourseInfoTarget.classList.toggle("d-none");
+  toggle(event) {
+    const hiddenCourseCard = event.currentTarget.parentElement.querySelector('.hidden-course-card')
+    if (hiddenCourseCard) {
+      hiddenCourseCard.classList.toggle('d-none')
+    }
   }
 }

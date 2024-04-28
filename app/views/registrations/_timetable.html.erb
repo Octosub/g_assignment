@@ -20,7 +20,7 @@
             <td><%= timeslot_for_row(row) %></td>
             <% (timeslot_counter..(timeslot_counter + 4)).each do |timeslot| %>
               <% course = @courses.find{ |course| course.timeslot == timeslot_counter } %>
-              <td><%= course ? course.title : '-' %></td>
+              <td><%= course ? course.title : timeslot_counter %></td>
               <% timeslot_counter += 1 %>
             <% end %>
           </tr>
