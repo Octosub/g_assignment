@@ -1,0 +1,10 @@
+body {
+  background: rgb(255,255,255);
+  background: linear-gradient(0deg, $white 0%, $black 85%);
+}
+
+.page-title {
+  text-align: center;
+  color: $white;
+  margin-bottom: 20px;
+}
