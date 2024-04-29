@@ -1,23 +1,25 @@
-<h1>Courses</h1>
+<!--<h1 class="page-title">Courses</h1>-->
 
-<div class="course-table" data-controller="toggle-classinfo">
+<div id="course-table" data-controller="toggle-classinfo">
   <% @courses.each do |course| %>
     <div class="course-card">
       <h2><%= course.title %></h2>
-      <p><%= course.semester %></p>
-      <p><%= course.teacher.name %></p>
-      <p><strong>Credits: <%= course.credits %></strong></p>
-      <%= button_to 'Register', course_registrations_path(course), method: :post, class:'btn register-btn' %>
-      <button class="btn classinfo-btn" data-action="click->toggle-classinfo#toggle">Information</button>
+      <div class="course-card-contents">
+        <div class="course-card-info">
+          <p><strong>Teacher:</strong> <%= course.teacher.name %> (<%= course.teacher.position %>)</p>
+          <p><%= timeslot_to_day(course.timeslot) %>, <%= timeslot_to_time(course.timeslot) %></p>
+          <p><strong>Credits: <%= course.credits %></strong></p>
+          <p><%= course.semester %></p>
+        </div>
+        <div class="course-card-buttons">
+          <%= button_to 'Register', course_registrations_path(course), method: :post, class:'btn register-btn' %>
+          <button class="btn classinfo-btn" data-action="click->toggle-classinfo#toggle">Information</button>
+        </div>
+      </div>
 
       <div class="hidden-course-card d-none" >
-        <h2><%= course.title %></h2>
+
         <p><%= course.description %></p>
-        <p><%= course.semester %></p>
-        <p><%= course.timeslot %></p>
-        <p><%= course.teacher.name %></p>
-        <p><strong>Credits: <%= course.credits %></strong></p>
-        <%= button_to 'Register', course_registrations_path(course), method: :post, class:'btn register-btn' %>
       </div>
     </div>
   <% end %>
