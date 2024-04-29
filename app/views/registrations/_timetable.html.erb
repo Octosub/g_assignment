@@ -3,8 +3,9 @@
 <% if @registrations.empty? %>
   <p>You have not registered for any courses yet.</p>
 <% else %>
-  <div class="timetable-container">
-    <table>
+  <div class="timetable-container" data-controller="toggle-timetable">
+    <button class="btn" data-action="click->toggle-timetable#toggle">Toggle timetable</button>
+    <table id="SoSe-timetable">
       <thead>
         <th>Time</th>
         <th>Mon</th>
@@ -15,6 +16,29 @@
       </thead>
       <tbody>
         <% timeslot_counter = 1 %>
+        <% (1..7).each do |row| %>
+          <tr>
+            <td><%= timeslot_for_row(row) %></td>
+            <% (timeslot_counter..(timeslot_counter + 4)).each do |timeslot| %>
+              <% course = @courses.find{ |course| course.timeslot == timeslot_counter } %>
+              <td><%= course ? course.title : timeslot_counter %></td>
+              <% timeslot_counter += 1 %>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <table id="WiSe-timetable" class="d-none">
+      <thead>
+        <th>Time</th>
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+        <th>Thu</th>
+        <th>Fri</th>
+      </thead>
+      <tbody>
+        <% timeslot_counter = 36 %>
         <% (1..7).each do |row| %>
           <tr>
             <td><%= timeslot_for_row(row) %></td>
