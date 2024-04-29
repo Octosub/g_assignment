@@ -4,7 +4,9 @@
   <p>You have not registered for any courses yet.</p>
 <% else %>
   <div class="timetable-container" data-controller="toggle-timetable">
-    <button class="btn" data-action="click->toggle-timetable#toggle">Toggle timetable</button>
+    <button id="SoSe-toggle-button" class="btn active-toggle" data-action="click->toggle-timetable#toggle">Summer Semester</button>
+    <button id="WiSe-toggle-button" class="btn" data-action="click->toggle-timetable#toggle">Winter Semester</button>
+
     <table id="SoSe-timetable">
       <thead>
         <th>Time</th>
@@ -52,6 +54,14 @@
       </tbody>
     </table>
   </div>
+
+
+
+
+
+
+
+
   <br>
   <br>
   <br>
