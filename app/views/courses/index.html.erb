@@ -7,7 +7,7 @@
       <div class="course-card-contents">
         <div class="course-card-info">
           <p><strong>Credits: <%= course.credits %></strong></p>
-          <p><%= course.teacher.name %></p>
+          <p><strong>Teacher:</strong> <%= course.teacher.name %></p>
           <p><%= course.semester %></p>
           <p><%= timeslot_to_day(course.timeslot) %>, <%= timeslot_to_time(course.timeslot) %></p>
         </div>
