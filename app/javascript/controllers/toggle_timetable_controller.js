@@ -4,8 +4,8 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
 
   toggle(event) {
-    const wiseTimetable = event.currentTarget.parentElement.querySelector('#WiSe-timetable')
-    const soseTimetable = event.currentTarget.parentElement.querySelector('#SoSe-timetable')
+    const wiseTimetable = event.currentTarget.parentElement.parentElement.querySelector('#WiSe-timetable')
+    const soseTimetable = event.currentTarget.parentElement.parentElement.querySelector('#SoSe-timetable')
 
     const wiseToggleButton = event.currentTarget.parentElement.querySelector('#WiSe-toggle-button')
     const soseToggleButton = event.currentTarget.parentElement.querySelector('#SoSe-toggle-button')

@@ -1,4 +1,61 @@
-td {
-  background-color: grey;
-  border: 1px solid black;
+.timetable-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 70vh;
+  margin-top: 20px;
+}
+
+#timetable-toggle-buttons-container {
+  margin-bottom: 20px;
+}
+
+#timetable-content-container {
+  width: 80%;
+  height: 100%;
+  box-shadow: $dark-gray 1px 2px 20px;
+}
+
+.semester-table {
+  background-color: $black;
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.semester-table td, table.semester-table th {
+  width: 16.6666%;
+  height: 12.5555%;
+  border: 3px solid #CCC5B9;
+  padding: 3px 2px;
+}
+
+.semester-table tbody td {
+  font-size: 13px;
+  text-align: center;
+  color: #FFFCF2;
+  padding: 10px;
+}
+
+.semester-table tbody td:nth-child(1) {
+  font-size: 18px;
+
+}
+
+.semester-table tr:nth-child(even) {
+  background: $dark-gray;
+}
+
+.semester-table thead {
+  background: $dark-gray;
+  border-bottom: 2px solid #444444;
+}
+
+.semester-table thead th {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  color: $white;
+  padding: 10px;
 }

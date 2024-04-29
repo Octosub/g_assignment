@@ -1,3 +1,13 @@
+#timetable-toggle-buttons-container button {
+  font-size: 18px;
+}
+
 .active-toggle {
-  background-color: grey;
+  background-color: $dark-gray;
+  color: $orange;
+
+  &:hover {
+    background-color: $dark-gray;
+    color: $orange;
+  }
 }
